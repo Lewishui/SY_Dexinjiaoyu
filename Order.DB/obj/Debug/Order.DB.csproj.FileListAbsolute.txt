@@ -1,0 +1,10 @@
+C:\mysteap\work_office\ProjectOut\JN订单管理\JNOrderManagermentSystem\Order.DB\bin\Debug\Order.DB.dll
+C:\mysteap\work_office\ProjectOut\JN订单管理\JNOrderManagermentSystem\Order.DB\bin\Debug\Order.DB.pdb
+C:\mysteap\work_office\ProjectOut\JN订单管理\JNOrderManagermentSystem\Order.DB\obj\Debug\Order.DB.dll
+C:\mysteap\work_office\ProjectOut\JN订单管理\JNOrderManagermentSystem\Order.DB\obj\Debug\Order.DB.pdb
+C:\mysteap\work_office\ProjectOut\JN订单管理\JNOrderManagermentSystem\Order.DB\obj\Debug\Order.DB.csprojResolveAssemblyReference.cache
+C:\mysteap\work_office\ProjectOut\GZ贵州诚德清洁服务管理有限公司客户专员数据\GZ_DQCleaningCompany\Order.DB\bin\Debug\Order.DB.dll
+C:\mysteap\work_office\ProjectOut\GZ贵州诚德清洁服务管理有限公司客户专员数据\GZ_DQCleaningCompany\Order.DB\bin\Debug\Order.DB.pdb
+C:\mysteap\work_office\ProjectOut\GZ贵州诚德清洁服务管理有限公司客户专员数据\GZ_DQCleaningCompany\Order.DB\obj\Debug\Order.DB.csprojResolveAssemblyReference.cache
+C:\mysteap\work_office\ProjectOut\GZ贵州诚德清洁服务管理有限公司客户专员数据\GZ_DQCleaningCompany\Order.DB\obj\Debug\Order.DB.dll
+C:\mysteap\work_office\ProjectOut\GZ贵州诚德清洁服务管理有限公司客户专员数据\GZ_DQCleaningCompany\Order.DB\obj\Debug\Order.DB.pdb
