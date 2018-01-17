@@ -53,18 +53,15 @@
             this.tsbLogin = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.scrollingText1 = new Order.Common.ScrollingText();
             this.dockPanel2 = new WeifenLuo.WinFormsUI.Docking.DockPanel();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.pBBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.修改登录信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.导入彩票数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查询信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
             this.关于系统ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.服务器设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scrollingText1 = new Order.Common.ScrollingText();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -109,6 +106,7 @@
             this.tsbLogin.Text = "登录";
             this.tsbLogin.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.tsbLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbLogin.Click += new System.EventHandler(this.tsbLogin_Click);
             // 
             // toolStrip1
             // 
@@ -140,28 +138,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(842, 537);
             this.panel1.TabIndex = 10;
-            // 
-            // scrollingText1
-            // 
-            this.scrollingText1.BackColor = System.Drawing.Color.White;
-            this.scrollingText1.BorderColor = System.Drawing.Color.Black;
-            this.scrollingText1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.scrollingText1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.scrollingText1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scrollingText1.ForeColor = System.Drawing.Color.Lime;
-            this.scrollingText1.ForegroundBrush = null;
-            this.scrollingText1.Location = new System.Drawing.Point(0, 0);
-            this.scrollingText1.Name = "scrollingText1";
-            this.scrollingText1.ScrollDirection = Order.Common.ScrollDirection.RightToLeft;
-            this.scrollingText1.ScrollText = "欢迎来到德信办公系统 Welcome DEXIN System";
-            this.scrollingText1.ShowBorder = true;
-            this.scrollingText1.Size = new System.Drawing.Size(842, 40);
-            this.scrollingText1.StopScrollOnMouseOver = false;
-            this.scrollingText1.TabIndex = 10;
-            this.scrollingText1.Text = "scrollingText1";
-            this.scrollingText1.TextScrollDistance = 2;
-            this.scrollingText1.TextScrollSpeed = 25;
-            this.scrollingText1.VerticleTextPosition = Order.Common.VerticleTextPosition.Center;
             // 
             // dockPanel2
             // 
@@ -225,8 +201,7 @@
             // toolStripDropDownButton2
             // 
             this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pBBToolStripMenuItem,
-            this.修改登录信息ToolStripMenuItem});
+            this.pBBToolStripMenuItem});
             this.toolStripDropDownButton2.Enabled = false;
             this.toolStripDropDownButton2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripDropDownButton2.Image = global::SY_Dexinjiaoyu.Properties.Resources.user_5c;
@@ -239,15 +214,9 @@
             // pBBToolStripMenuItem
             // 
             this.pBBToolStripMenuItem.Name = "pBBToolStripMenuItem";
-            this.pBBToolStripMenuItem.Size = new System.Drawing.Size(176, 26);
-            this.pBBToolStripMenuItem.Text = "用户管理";
-            // 
-            // 修改登录信息ToolStripMenuItem
-            // 
-            this.修改登录信息ToolStripMenuItem.Enabled = false;
-            this.修改登录信息ToolStripMenuItem.Name = "修改登录信息ToolStripMenuItem";
-            this.修改登录信息ToolStripMenuItem.Size = new System.Drawing.Size(176, 26);
-            this.修改登录信息ToolStripMenuItem.Text = "修改登录信息";
+            this.pBBToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.pBBToolStripMenuItem.Text = "导入";
+            this.pBBToolStripMenuItem.Click += new System.EventHandler(this.pBBToolStripMenuItem_Click);
             // 
             // toolStripDropDownButton1
             // 
@@ -266,21 +235,19 @@
             // 导入彩票数据ToolStripMenuItem
             // 
             this.导入彩票数据ToolStripMenuItem.Name = "导入彩票数据ToolStripMenuItem";
-            this.导入彩票数据ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.导入彩票数据ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.导入彩票数据ToolStripMenuItem.Text = "主页面";
             // 
             // 查询信息ToolStripMenuItem
             // 
             this.查询信息ToolStripMenuItem.Name = "查询信息ToolStripMenuItem";
-            this.查询信息ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.查询信息ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.查询信息ToolStripMenuItem.Text = "工作日志";
             // 
             // toolStripDropDownButton3
             // 
             this.toolStripDropDownButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.关于系统ToolStripMenuItem,
-            this.eToolStripMenuItem,
-            this.服务器设置ToolStripMenuItem});
+            this.关于系统ToolStripMenuItem});
             this.toolStripDropDownButton3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripDropDownButton3.Image = global::SY_Dexinjiaoyu.Properties.Resources.tools;
             this.toolStripDropDownButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -292,20 +259,32 @@
             // 关于系统ToolStripMenuItem
             // 
             this.关于系统ToolStripMenuItem.Name = "关于系统ToolStripMenuItem";
-            this.关于系统ToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
+            this.关于系统ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.关于系统ToolStripMenuItem.Text = "关于系统";
+            this.关于系统ToolStripMenuItem.Click += new System.EventHandler(this.关于系统ToolStripMenuItem_Click);
             // 
-            // eToolStripMenuItem
+            // scrollingText1
             // 
-            this.eToolStripMenuItem.Name = "eToolStripMenuItem";
-            this.eToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
-            this.eToolStripMenuItem.Text = "初始化用户";
-            // 
-            // 服务器设置ToolStripMenuItem
-            // 
-            this.服务器设置ToolStripMenuItem.Name = "服务器设置ToolStripMenuItem";
-            this.服务器设置ToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
-            this.服务器设置ToolStripMenuItem.Text = "服务器设置";
+            this.scrollingText1.BackColor = System.Drawing.Color.White;
+            this.scrollingText1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.scrollingText1.BorderColor = System.Drawing.Color.White;
+            this.scrollingText1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.scrollingText1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.scrollingText1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scrollingText1.ForeColor = System.Drawing.Color.Lime;
+            this.scrollingText1.ForegroundBrush = null;
+            this.scrollingText1.Location = new System.Drawing.Point(0, 0);
+            this.scrollingText1.Name = "scrollingText1";
+            this.scrollingText1.ScrollDirection = Order.Common.ScrollDirection.RightToLeft;
+            this.scrollingText1.ScrollText = "欢迎来到德信办公系统 Welcome DEXIN System";
+            this.scrollingText1.ShowBorder = true;
+            this.scrollingText1.Size = new System.Drawing.Size(842, 40);
+            this.scrollingText1.StopScrollOnMouseOver = false;
+            this.scrollingText1.TabIndex = 10;
+            this.scrollingText1.Text = "scrollingText1";
+            this.scrollingText1.TextScrollDistance = 2;
+            this.scrollingText1.TextScrollSpeed = 25;
+            this.scrollingText1.VerticleTextPosition = Order.Common.VerticleTextPosition.Center;
             // 
             // frmlogin
             // 
@@ -328,8 +307,6 @@
         #endregion
 
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.ToolStripMenuItem 服务器设置ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 关于系统ToolStripMenuItem;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton3;
         private System.Windows.Forms.ToolStripStatusLabel toolStripLabel1;
@@ -340,7 +317,6 @@
         private System.Windows.Forms.ToolStripMenuItem 查询信息ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 导入彩票数据ToolStripMenuItem;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
-        private System.Windows.Forms.ToolStripMenuItem 修改登录信息ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pBBToolStripMenuItem;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
         private System.Windows.Forms.ToolStrip toolStrip1;

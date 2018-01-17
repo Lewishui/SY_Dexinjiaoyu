@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -64,16 +64,43 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAboutBox.Designer.cs">
+      <DependentUpon>frmAboutBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmlogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmlogin.Designer.cs">
       <DependentUpon>frmlogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMessageShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMessageShow.Designer.cs">
+      <DependentUpon>frmMessageShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportHotelExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportHotelExcel.Designer.cs">
+      <DependentUpon>ImportHotelExcel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAboutBox.resx">
+      <DependentUpon>frmAboutBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmlogin.resx">
       <DependentUpon>frmlogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMessageShow.resx">
+      <DependentUpon>frmMessageShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportHotelExcel.resx">
+      <DependentUpon>ImportHotelExcel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -107,6 +134,10 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Dexin.Buiness\Dexin.Buiness.csproj">
+      <Project>{98e8f0a5-db9c-4fe6-a199-87f7614aeda0}</Project>
+      <Name>Dexin.Buiness</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Order.Common\Order.Common.csproj">
       <Project>{EB3B4387-9D4C-4A07-A558-971602541779}</Project>
       <Name>Order.Common</Name>

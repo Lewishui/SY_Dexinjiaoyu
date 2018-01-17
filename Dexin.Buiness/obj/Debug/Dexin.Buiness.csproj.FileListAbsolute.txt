@@ -5,3 +5,12 @@ C:\mysteap\work_office\ProjectOut\SY_德信教育word批量管理\SY_Dexinjiaoyu
 C:\mysteap\work_office\ProjectOut\SY_德信教育word批量管理\SY_Dexinjiaoyu\Dexin.Buiness\obj\Debug\Dexin.Buiness.csprojResolveAssemblyReference.cache
 C:\mysteap\work_office\ProjectOut\SY_德信教育word批量管理\SY_Dexinjiaoyu\Dexin.Buiness\obj\Debug\Dexin.Buiness.dll
 C:\mysteap\work_office\ProjectOut\SY_德信教育word批量管理\SY_Dexinjiaoyu\Dexin.Buiness\obj\Debug\Dexin.Buiness.pdb
+C:\mysteap\work_office\ProjectOut\SY_德信教育word批量管理\SY_Dexinjiaoyu\Dexin.Buiness\bin\Debug\Microsoft.Office.Interop.Excel.dll
+C:\mysteap\work_office\ProjectOut\SY_德信教育word批量管理\SY_Dexinjiaoyu\Dexin.Buiness\bin\Debug\Order.Common.dll
+C:\mysteap\work_office\ProjectOut\SY_德信教育word批量管理\SY_Dexinjiaoyu\Dexin.Buiness\bin\Debug\Order.DB.dll
+C:\mysteap\work_office\ProjectOut\SY_德信教育word批量管理\SY_Dexinjiaoyu\Dexin.Buiness\bin\Debug\MySql.Data.dll
+C:\mysteap\work_office\ProjectOut\SY_德信教育word批量管理\SY_Dexinjiaoyu\Dexin.Buiness\bin\Debug\office.dll
+C:\mysteap\work_office\ProjectOut\SY_德信教育word批量管理\SY_Dexinjiaoyu\Dexin.Buiness\bin\Debug\Order.Common.pdb
+C:\mysteap\work_office\ProjectOut\SY_德信教育word批量管理\SY_Dexinjiaoyu\Dexin.Buiness\bin\Debug\Order.DB.pdb
+C:\mysteap\work_office\ProjectOut\SY_德信教育word批量管理\SY_Dexinjiaoyu\Dexin.Buiness\bin\Debug\Microsoft.Office.Interop.Excel.xml
+C:\mysteap\work_office\ProjectOut\SY_德信教育word批量管理\SY_Dexinjiaoyu\Dexin.Buiness\bin\Debug\office.xml

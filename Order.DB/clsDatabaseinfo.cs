@@ -16,34 +16,27 @@ namespace Order.DB
         public string AdminIS { get; set; }
         public string jigoudaima { get; set; }
     }
- 
-    //合同编号	客户姓名	客户住址	联系电话	合同到期时间	合同时长	实收/元	月价/元	面积/m²	提醒收费时间	每月次	总次数	剩余数	"擦玻璃
-      //"	客户要求	备注
-    public class clsOrderinfo
+
+    //证号	姓名	性别	作业类别	准操项目	初领日期	有效期限	复审日期
+
+    public class clsDATAinfo
     {
-        public int order_id { get; set; }
-        public string hetongbianhao { get; set; }
-        public string kehuxingming { get; set; }
-        public string kehudizhi { get; set; }
-        public string lianxidianhua { get; set; }
-        public string hetongdaoqishijian { get; set; }
-        public string hetongshichang { get; set; }
-        public string shishou { get; set; }
-        public string yuejia { get; set; }
-        public string mianji { get; set; }
-        public string tixingshoufeishijian { get; set; }
-        public string meiyuanci { get; set; }
-        public string zongcishu { get; set; }
-        public string shengyushu { get; set; }
-        public string chaboli { get; set; }
-        public string kehuyaoqiu { get; set; }
-        public string beizhu { get; set; }
-        public DateTime Input_Date { get; set; }
+        public int Item_ID { get; set; }
+        public string zhenghao { get; set; }
+        public string xingming { get; set; }
+        public string xingbie { get; set; }
+        public string zuoyeleibie { get; set; }
+        public string zhuncaoxiangmu { get; set; }
+        public string chulingriqi { get; set; }
+        public string youxiangqixian { get; set; }
+        public string fushenriqi { get; set; }     
+        public DateTime Input_Date { get; set; }    
+        public string Message { get; set; }
+
         //新增的标记
         public string xinzeng { get; set; }
      
-    
-        public string Message { get; set; }
+
       
     }
     //产品型号	订货数量	订货日期	使用单位

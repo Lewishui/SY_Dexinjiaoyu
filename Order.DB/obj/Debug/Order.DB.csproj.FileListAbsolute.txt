@@ -8,3 +8,8 @@ C:\mysteap\work_office\ProjectOut\GZ贵州诚德清洁服务管理有限公司�
 C:\mysteap\work_office\ProjectOut\GZ贵州诚德清洁服务管理有限公司客户专员数据\GZ_DQCleaningCompany\Order.DB\obj\Debug\Order.DB.csprojResolveAssemblyReference.cache
 C:\mysteap\work_office\ProjectOut\GZ贵州诚德清洁服务管理有限公司客户专员数据\GZ_DQCleaningCompany\Order.DB\obj\Debug\Order.DB.dll
 C:\mysteap\work_office\ProjectOut\GZ贵州诚德清洁服务管理有限公司客户专员数据\GZ_DQCleaningCompany\Order.DB\obj\Debug\Order.DB.pdb
+C:\mysteap\work_office\ProjectOut\SY_德信教育word批量管理\SY_Dexinjiaoyu\Order.DB\bin\Debug\Order.DB.dll
+C:\mysteap\work_office\ProjectOut\SY_德信教育word批量管理\SY_Dexinjiaoyu\Order.DB\bin\Debug\Order.DB.pdb
+C:\mysteap\work_office\ProjectOut\SY_德信教育word批量管理\SY_Dexinjiaoyu\Order.DB\obj\Debug\Order.DB.csprojResolveAssemblyReference.cache
+C:\mysteap\work_office\ProjectOut\SY_德信教育word批量管理\SY_Dexinjiaoyu\Order.DB\obj\Debug\Order.DB.dll
+C:\mysteap\work_office\ProjectOut\SY_德信教育word批量管理\SY_Dexinjiaoyu\Order.DB\obj\Debug\Order.DB.pdb
