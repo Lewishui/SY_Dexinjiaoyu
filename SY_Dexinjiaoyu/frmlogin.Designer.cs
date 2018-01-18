@@ -214,7 +214,7 @@
             // pBBToolStripMenuItem
             // 
             this.pBBToolStripMenuItem.Name = "pBBToolStripMenuItem";
-            this.pBBToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.pBBToolStripMenuItem.Size = new System.Drawing.Size(112, 26);
             this.pBBToolStripMenuItem.Text = "导入";
             this.pBBToolStripMenuItem.Click += new System.EventHandler(this.pBBToolStripMenuItem_Click);
             // 
@@ -237,6 +237,7 @@
             this.导入彩票数据ToolStripMenuItem.Name = "导入彩票数据ToolStripMenuItem";
             this.导入彩票数据ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.导入彩票数据ToolStripMenuItem.Text = "主页面";
+            this.导入彩票数据ToolStripMenuItem.Click += new System.EventHandler(this.导入彩票数据ToolStripMenuItem_Click);
             // 
             // 查询信息ToolStripMenuItem
             // 
@@ -259,7 +260,7 @@
             // 关于系统ToolStripMenuItem
             // 
             this.关于系统ToolStripMenuItem.Name = "关于系统ToolStripMenuItem";
-            this.关于系统ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.关于系统ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.关于系统ToolStripMenuItem.Text = "关于系统";
             this.关于系统ToolStripMenuItem.Click += new System.EventHandler(this.关于系统ToolStripMenuItem_Click);
             // 

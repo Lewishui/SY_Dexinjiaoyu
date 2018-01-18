@@ -64,6 +64,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrystalButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalButton.designer.cs">
+      <DependentUpon>CrystalButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,11 +88,23 @@
     <Compile Include="frmMessageShow.Designer.cs">
       <DependentUpon>frmMessageShow.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOrder.Designer.cs">
+      <DependentUpon>frmOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="ImportHotelExcel.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ImportHotelExcel.Designer.cs">
       <DependentUpon>ImportHotelExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrdersControl.Designer.cs">
+      <DependentUpon>OrdersControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,8 +117,14 @@
     <EmbeddedResource Include="frmMessageShow.resx">
       <DependentUpon>frmMessageShow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmOrder.resx">
+      <DependentUpon>frmOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ImportHotelExcel.resx">
       <DependentUpon>ImportHotelExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrdersControl.resx">
+      <DependentUpon>OrdersControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

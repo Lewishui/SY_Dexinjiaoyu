@@ -34,6 +34,7 @@ namespace SY_Dexinjiaoyu
         List<string> messages;
         //要显示信息的下标索引
         int index = 0;
+        private OrdersControl OrdersControl;
         public frmlogin()
         {
             InitializeComponent();
@@ -227,6 +228,30 @@ namespace SY_Dexinjiaoyu
                 return;
 
                 throw ex;
+            }
+        }
+
+        private void 导入彩票数据ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            toolStrip1.Visible = false;
+
+
+            if (OrdersControl == null)
+            {
+                OrdersControl = new OrdersControl(this.txtSAPUserId.Text, this.txtSAPPassword.Text.Trim());
+                OrdersControl.FormClosed += new FormClosedEventHandler(FrmOMS_FormClosed);
+            }
+            if (OrdersControl == null)
+            {
+                OrdersControl = new OrdersControl(this.txtSAPUserId.Text, this.txtSAPPassword.Text.Trim());
+            }
+            OrdersControl.Show(this.dockPanel2);
+        }
+        void FrmOMS_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (sender is OrdersControl)
+            {
+                OrdersControl = null;
             }
         }
 

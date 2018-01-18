@@ -37,5 +37,6 @@ namespace Order.Common
         public const string MSG_028 = "Read OK !";
         public const string MSG_029 = "The time-consuming：";
         public const string MSG_030 = "System Error";
+        public const string MSG_031 = "恭喜， 导出完成！";
     }
 }
