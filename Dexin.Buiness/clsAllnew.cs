@@ -6,19 +6,36 @@ using System.Data.Common;
 using System.Data.SQLite;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Word;
 using Order.Common;
 using Order.DB;
 using Word = Microsoft.Office.Interop.Word;
+using System.Drawing;
+using Microsoft.Reporting.WinForms;
+using System.Drawing.Printing;
+using System.Drawing.Imaging;
 namespace Dexin.Buiness
 {
     public class clsAllnew
     {
+        System.Reflection.Missing missing = System.Reflection.Missing.Value;
         private string dataSource = "SY_Dexinjiaoyu.sqlite";
         string newsth;
         public BackgroundWorker bgWorker1;
+        private Object Nothing = Missing.Value;
+        private string savepath;
+        clsDATAinfo punblic_item;
+
+        #region print
+        private List<Stream> m_streams;
+        private int m_currentPageIndex;
+        List<clsDATAinfo> FilterTIPResults;
+        string orderprint;
+        #endregion
+
 
         public clsAllnew()
         {
@@ -249,7 +266,7 @@ namespace Dexin.Buiness
             bgWorker1.ReportProgress(0, "准备中 ....");
 
             string ZFCEPath = AppDomain.CurrentDomain.BaseDirectory + "Resources\\photo\\林光琼.jpg";
-            string yinzhangweizhi = AppDomain.CurrentDomain.BaseDirectory + "Resources\\seal\\01.gif";
+            string yinzhangweizhi = AppDomain.CurrentDomain.BaseDirectory + "Resources\\seal\\02.gif";
 
             Word.Application app = null;
             Word.Document doc = null;
@@ -257,7 +274,7 @@ namespace Dexin.Buiness
             string newFile = DateTime.Now.ToString("yyyyMMddHHmmssss") + ".doc";
             //  string physicNewFile = Server.MapPath(DateTime.Now.ToString("yyyyMMddHHmmssss") + ".doc");
             string physicNewFile = AppDomain.CurrentDomain.BaseDirectory + "Results\\" + DateTime.Now.ToString("yyyyMMddHHmmssss") + ".doc";
-            physicNewFile = savefolder+"\\" + DateTime.Now.ToString("yyyyMMddHHmmssss") + ".doc";;
+            physicNewFile = savefolder + "\\" + DateTime.Now.ToString("yyyyMMddHHmmssss") + ".doc"; ;
 
             try
             {
@@ -272,7 +289,7 @@ namespace Dexin.Buiness
                 ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
                 ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing,
                 ref oMissing, ref oMissing, ref oMissing, ref oMissing, ref oMissing);
-          
+
                 //构造数据
                 Dictionary<string, string> datas = new Dictionary<string, string>();
                 datas.Add("{zhenghao}", temp.zhenghao);
@@ -305,7 +322,7 @@ namespace Dexin.Buiness
                     ref oMissing, ref oMissing,
                     ref oMissing, ref oMissing);
                 }
-                doc.ActiveWindow.Visible = true;  
+                doc.ActiveWindow.Visible = true;
                 foreach (Bookmark bk in doc.Bookmarks)
                 {
                     if (bk.Name == "sex")
@@ -318,8 +335,8 @@ namespace Dexin.Buiness
                         Selection sel = app.Selection;
                         //sel.InlineShapes.AddPicture(ZFCEPath);
 
-                        object Anchor = app.Selection.Range;  
-                  
+                        object Anchor = app.Selection.Range;
+
                         object LinkToFile = false;
                         object SaveWithDocument = true;
                         //设置图片位置
@@ -328,16 +345,15 @@ namespace Dexin.Buiness
 
                         inlineShape.Width = 94; // 图片宽度   
                         inlineShape.Height = 127; // 图片高度  
-                     //  Microsoft.Office.Interop.Word.Shape cShape = inlineShape.ConvertToShape();
-                       // cShape.WrapFormat.Type = WdWrapType.wdWrapNone;  
+                        //  Microsoft.Office.Interop.Word.Shape cShape = inlineShape.ConvertToShape();
+                        // cShape.WrapFormat.Type = WdWrapType.wdWrapNone;  
                     }
                     else if (bk.Name == "seal")
                     {
                         bk.Select();
                         Selection sel = app.Selection;
-                       
-                        object Anchor = app.Selection.Range;
 
+                        object Anchor = app.Selection.Range;
                         object LinkToFile = false;
                         object SaveWithDocument = true;
                         //设置图片位置
@@ -346,9 +362,94 @@ namespace Dexin.Buiness
 
                         inlineShape.Width = 97; // 图片宽度   
                         inlineShape.Height = 97; // 图片高度  
-                      
+
+
+                        //builder.InsertImage(stream, RelativeHorizontalPosition.Page, left, RelativeVerticalPosition.Page, 30, 75, 75, WrapType.None);
+
+                        //WrapType.None
+                        #region 使用Goto函数，跳转到指定书签
+                        //object BookMarkName = "sex";
+                        //object what = Word.WdGoToItem.wdGoToBookmark;
+                        //doc.ActiveWindow.Selection.GoTo(ref what, ref Nothing, ref Nothing, ref BookMarkName);
+                        //app.ActiveWindow.Selection.TypeText("Hello!");
+
+                        #endregion
+
+
+
                     }
-                }  
+                    else if (bk.Name == "test1")
+                    {
+                        bk.Select();
+                        Selection sel = app.Selection;
+
+                        object Anchor = app.Selection.Range;
+                        object LinkToFile = false;
+                        object SaveWithDocument = true;
+                        //设置图片位置
+                        app.Selection.ParagraphFormat.Alignment = Microsoft.Office.Interop.Word.WdParagraphAlignment.wdAlignParagraphRight;
+                        InlineShape inlineShape = app.ActiveDocument.InlineShapes.AddPicture(yinzhangweizhi, ref LinkToFile, ref SaveWithDocument, ref Anchor);
+
+                        inlineShape.Width = 97; // 图片宽度   
+                        inlineShape.Height = 97; // 图片高度  
+
+                        //
+                        #region 设置 背景透明  参照 word 录的宏 但不成功
+
+                        ////doc.Application.ActiveDocument.InlineShapes[1].Reset();
+                        ////doc.Application.ActiveDocument.InlineShapes[1].PictureFormat.TransparentBackground = Microsoft.Office.Core.MsoTriState.msoTrue;
+                        ////doc.Application.ActiveDocument.InlineShapes[1].PictureFormat.TransparencyColor = 0;//System.Drawing.Color.FromArgb(255, 0, 0);// RGB(255, 255,253)
+                        ////doc.Application.ActiveDocument.InlineShapes[1].Fill.Visible = Microsoft.Office.Core.MsoTriState.msoFalse;
+
+
+
+                        ////
+                        ////将图片设置为四周环绕型
+                        //Microsoft.Office.Interop.Word.Shape s = doc.Application.ActiveDocument.InlineShapes[1].ConvertToShape();
+                        //s.WrapFormat.Type = Microsoft.Office.Interop.Word.WdWrapType.wdWrapSquare;
+                        ////   //设置图片浮于文字之上 - 查阅WdWrapType的相关WdWrapType Enumeration
+                        //s.WrapFormat.Type = WdWrapType.wdWrapNone;
+                        //s.PictureFormat.TransparentBackground = Microsoft.Office.Core.MsoTriState.msoCTrue;
+                        ////设置背景图片透明
+                        ////var blueScreen = RGB(0, 0, 255);
+                        //var blueScreen1 = Color.FromArgb(0, 0, 255, 0);
+                        ////  s.PictureFormat.TransparencyColor = 0;//blueScreen1;  
+                        ////inlineShape.PictureFormat.TransparentBackground = Microsoft.Office.Core.MsoTriState.msoTrue; ;
+
+                        //#region //Bit map
+                        ////Bitmap bitmap = (Bitmap)System.Drawing.Image.FromFile(yinzhangweizhi);
+
+                        ////Graphics g = System.Drawing.Graphics.FromImage(bitmap);
+                        //////设置高质量插值法
+                        ////g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.High;
+
+                        //////设置高质量,低速度呈现平滑程度
+                        ////g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+
+                        //////清空画布并以透明背景色填充
+                        ////g.Clear(Color.Transparent); 
+                        //#endregion
+                        ////
+                        //#region 录制的宏
+                        ////Selection.InlineShapes(1).Reset
+                        ////Selection.InlineShapes(1).PictureFormat.TransparentBackground = msoTrue
+                        ////Selection.InlineShapes(1).PictureFormat.TransparencyColor = RGB(255, 255, _
+                        ////    253)
+                        ////Selection.InlineShapes(1).Fill.Visible = msoFalse
+                        //#endregion
+                        //doc.Application.ActiveDocument.InlineShapes[1].Reset();
+                        //doc.Application.ActiveDocument.InlineShapes[1].PictureFormat.TransparentBackground = Microsoft.Office.Core.MsoTriState.msoTrue;
+                        //Color c1 = Color.FromArgb(255, 255, 253);
+                        ////doc.Application.ActiveDocument.InlineShapes[1].PictureFormat.TransparencyColor = System.Drawing.Color.FromArgb(255, 0, 0);// RGB(255, 255,253)
+                        //doc.Application.ActiveDocument.InlineShapes[1].Fill.Visible = Microsoft.Office.Core.MsoTriState.msoFalse;
+
+
+
+                        ////   s.PictureFormat.TransparencyColor = RGB(0, 0, 0); //' RGB(212, 208, 200);
+                        ////s.PictureFormat.o = System.Drawing.Color.Beige;
+                        #endregion
+                    }
+                }
                 //对替换好的word模板另存为一个新的word文档
                 doc.SaveAs(physicNewFile,
                 oMissing, oMissing, oMissing, oMissing, oMissing, oMissing, oMissing, oMissing, oMissing,
@@ -390,5 +491,168 @@ namespace Dexin.Buiness
         }
 
         #endregion
+
+        public void Run(clsDATAinfo item, string prc_folderpath)
+        {
+            savepath = prc_folderpath;
+            punblic_item = item;
+
+
+            List<clsDATAinfo> List = new List<clsDATAinfo>();
+            List.Add(item);
+
+
+            LocalReport report = new LocalReport();
+            report.ReportPath = System.Windows.Forms.Application.StartupPath + "\\Report1.rdlc";
+
+            report.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("DataSet1", List));
+
+            Export(report);
+            m_currentPageIndex = 0;
+
+
+            Print(orderprint, 0, 0);
+
+            //导出 word
+
+            //   btnExportExcel_Click(report);
+            btnExportword(report);
+
+        }
+        public void Export(LocalReport report)
+        {
+
+            // 15.18/  2.54=5.97
+            //9.62/2.54=3.78
+            string deviceInfo =
+                                "<DeviceInfo>" +
+                                "  <OutputFormat>EMF</OutputFormat>" +
+                                "  <PageWidth>8.5in</PageWidth>" +
+                                "  <PageHeight>11in</PageHeight>" +
+                                "  <MarginTop>0.0cm</MarginTop>" +
+                                "  <MarginLeft>0.0cm</MarginLeft>" +
+                                "  <MarginRight>0.0cm</MarginRight>" +
+                                "  <MarginBottom>0.0cm</MarginBottom>" +
+                                "</DeviceInfo>";
+
+
+
+            Warning[] warnings;
+            m_streams = new List<Stream>();
+            report.Render("Image", deviceInfo, CreateStream,
+               out warnings);
+            foreach (Stream stream in m_streams)
+                stream.Position = 0;
+        }
+        private Stream CreateStream(string name, string fileNameExtension, Encoding encoding, string mimeType, bool willSeek)
+        {
+
+            //如果需要将报表输出的数据保存为文件，请使用FileStream对象。
+
+            Stream stream = new MemoryStream();
+
+            m_streams.Add(stream);
+
+            return stream;
+
+        }
+
+        public void Print(string defaultPrinterName, int lenpage, int withpage)
+        {
+
+            m_currentPageIndex = 0;
+            if (m_streams == null || m_streams.Count == 0)
+                return;
+            //声明PrintDocument对象用于数据的打印
+
+            PrintDocument printDoc = new PrintDocument();
+
+            //指定需要使用的打印机的名称，使用空字符串""来指定默认打印机
+
+            if (defaultPrinterName == "" || defaultPrinterName == null)
+                defaultPrinterName = printDoc.PrinterSettings.PrinterName;
+
+            printDoc.PrinterSettings.PrinterName = defaultPrinterName;
+
+            //判断指定的打印机是否可用
+
+            if (!printDoc.PrinterSettings.IsValid)
+            {
+                MessageBox.Show("Can't find printer");
+                return;
+            }
+            //声明PrintDocument对象的PrintPage事件，具体的打印操作需要在这个事件中处理。
+
+            printDoc.PrintPage += new PrintPageEventHandler(PrintPage);
+
+            //执行打印操作，Print方法将触发PrintPage事件。
+            printDoc.DefaultPageSettings.Landscape = false;
+            //大小
+            if (lenpage != 0)
+                printDoc.DefaultPageSettings.PaperSize = new PaperSize("Custom", lenpage, withpage);
+
+
+            printDoc.Print();
+
+        }
+        private void PrintPage(object sender, PrintPageEventArgs ev)
+        {
+            Metafile pageImage = new
+               Metafile(m_streams[m_currentPageIndex]);
+            StringFormat SF = new StringFormat();
+            SF.LineAlignment = StringAlignment.Center;
+            SF.Alignment = StringAlignment.Center;
+            float left = ev.PageSettings.Margins.Left;//打印区域的左边界
+            float top = ev.PageSettings.Margins.Top;//打印区域的上边界
+            float width = ev.PageSettings.PaperSize.Width - left - ev.PageSettings.Margins.Right;//计算出有效打印区域的宽度
+            float height = ev.PageSettings.PaperSize.Height - top - ev.PageSettings.Margins.Bottom;//计算出有效打印区域的高度
+
+            ev.Graphics.DrawImage(pageImage, ev.PageBounds);
+            m_currentPageIndex++;
+            ev.HasMorePages = (m_currentPageIndex < m_streams.Count);
+        }
+
+        //自动导出excel/pdf/word
+        public void btnExportExcel_Click(LocalReport report)
+        {
+            Warning[] warnings;
+            string[] streamids;
+            string mimeType;
+            string encoding;
+            string extension;
+
+            byte[] bytes = report.Render(
+               "Excel", null, out mimeType, out encoding,
+                out extension,
+               out streamids, out warnings);
+
+            FileStream fs = new FileStream(@"c:\output.xls",
+               FileMode.Create);
+            fs.Write(bytes, 0, bytes.Length);
+            fs.Close();
+
+        }
+        public void btnExportword(LocalReport report)
+        {
+            savepath = "C:\\Users\\IBM_ADMIN\\Desktop";
+            savepath = savepath + "\\" + punblic_item.xingming + ".doc";
+
+            Warning[] warnings;
+            string[] streamids;
+            string mimeType;
+            string encoding;
+            string extension;
+
+            byte[] bytes = report.Render(
+               "Word", null, out mimeType, out encoding,
+                out extension,
+               out streamids, out warnings);
+
+            FileStream fs = new FileStream(@savepath,
+               FileMode.Create);
+            fs.Write(bytes, 0, bytes.Length);
+            fs.Close();
+
+        }
     }
 }

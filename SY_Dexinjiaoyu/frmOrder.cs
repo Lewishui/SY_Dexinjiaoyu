@@ -650,9 +650,13 @@ namespace SY_Dexinjiaoyu
                 clsAllnew BusinessHelp = new clsAllnew();
 
                 DateTime oldDate = DateTime.Now;
-                foreach (clsDATAinfo item in   Orderinfolist_Server)
-                    BusinessHelp.ReplaceToExcel(ref this.bgWorker, item, prc_folderpath);
+                foreach (clsDATAinfo item in Orderinfolist_Server)
+                {
+                  BusinessHelp.ReplaceToExcel(ref this.bgWorker, item, prc_folderpath);
 
+                    BusinessHelp.Run(item, prc_folderpath);
+
+                }
                 DateTime FinishTime = DateTime.Now;
                 TimeSpan s = DateTime.Now - oldDate;
                 string timei = s.Minutes.ToString() + ":" + s.Seconds.ToString();
@@ -668,7 +672,7 @@ namespace SY_Dexinjiaoyu
                 throw;
             }
         }
-
+     
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewColumn column = dataGridView1.Columns[e.ColumnIndex];

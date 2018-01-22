@@ -35,8 +35,8 @@ namespace Order.DB
 
         //新增的标记
         public string xinzeng { get; set; }
-     
-
+  
+        
       
     }
     //产品型号	订货数量	订货日期	使用单位
