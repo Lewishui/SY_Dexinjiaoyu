@@ -17,3 +17,5 @@ C:\mysteap\work_office\ProjectOut\SY_德信教育word批量管理\SY_Dexinjiaoyu
 C:\mysteap\work_office\ProjectOut\SY_德信教育word批量管理\SY_Dexinjiaoyu\Dexin.Buiness\bin\Debug\Microsoft.Office.Interop.Word.dll
 C:\mysteap\work_office\ProjectOut\SY_德信教育word批量管理\SY_Dexinjiaoyu\Dexin.Buiness\bin\Debug\Microsoft.Office.Interop.Word.xml
 C:\mysteap\work_office\ProjectOut\SY_德信教育word批量管理\SY_Dexinjiaoyu\Dexin.Buiness\obj\Debug\Dexin.Buiness.csproj.ResolveComReference.cache
+C:\mysteap\work_office\ProjectOut\SY_德信教育word批量管理\SY_Dexinjiaoyu\Dexin.Buiness\bin\Debug\Spire.Doc.dll
+C:\mysteap\work_office\ProjectOut\SY_德信教育word批量管理\SY_Dexinjiaoyu\Dexin.Buiness\bin\Debug\Spire.Pdf.dll

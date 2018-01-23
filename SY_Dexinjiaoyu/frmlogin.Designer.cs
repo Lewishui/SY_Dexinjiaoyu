@@ -58,10 +58,10 @@
             this.pBBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.导入彩票数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.查询信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
             this.关于系统ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scrollingText1 = new Order.Common.ScrollingText();
+            this.设置打印机ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -214,7 +214,7 @@
             // pBBToolStripMenuItem
             // 
             this.pBBToolStripMenuItem.Name = "pBBToolStripMenuItem";
-            this.pBBToolStripMenuItem.Size = new System.Drawing.Size(112, 26);
+            this.pBBToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.pBBToolStripMenuItem.Text = "导入";
             this.pBBToolStripMenuItem.Click += new System.EventHandler(this.pBBToolStripMenuItem_Click);
             // 
@@ -222,7 +222,7 @@
             // 
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.导入彩票数据ToolStripMenuItem,
-            this.查询信息ToolStripMenuItem});
+            this.设置打印机ToolStripMenuItem});
             this.toolStripDropDownButton1.Enabled = false;
             this.toolStripDropDownButton1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripDropDownButton1.Image = global::SY_Dexinjiaoyu.Properties.Resources._039aca64ea8386f7b6f814cfad13c979;
@@ -235,15 +235,9 @@
             // 导入彩票数据ToolStripMenuItem
             // 
             this.导入彩票数据ToolStripMenuItem.Name = "导入彩票数据ToolStripMenuItem";
-            this.导入彩票数据ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.导入彩票数据ToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
             this.导入彩票数据ToolStripMenuItem.Text = "主页面";
             this.导入彩票数据ToolStripMenuItem.Click += new System.EventHandler(this.导入彩票数据ToolStripMenuItem_Click);
-            // 
-            // 查询信息ToolStripMenuItem
-            // 
-            this.查询信息ToolStripMenuItem.Name = "查询信息ToolStripMenuItem";
-            this.查询信息ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
-            this.查询信息ToolStripMenuItem.Text = "工作日志";
             // 
             // toolStripDropDownButton3
             // 
@@ -260,7 +254,7 @@
             // 关于系统ToolStripMenuItem
             // 
             this.关于系统ToolStripMenuItem.Name = "关于系统ToolStripMenuItem";
-            this.关于系统ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.关于系统ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.关于系统ToolStripMenuItem.Text = "关于系统";
             this.关于系统ToolStripMenuItem.Click += new System.EventHandler(this.关于系统ToolStripMenuItem_Click);
             // 
@@ -286,6 +280,13 @@
             this.scrollingText1.TextScrollDistance = 2;
             this.scrollingText1.TextScrollSpeed = 25;
             this.scrollingText1.VerticleTextPosition = Order.Common.VerticleTextPosition.Center;
+            // 
+            // 设置打印机ToolStripMenuItem
+            // 
+            this.设置打印机ToolStripMenuItem.Name = "设置打印机ToolStripMenuItem";
+            this.设置打印机ToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
+            this.设置打印机ToolStripMenuItem.Text = "设置打印机";
+            this.设置打印机ToolStripMenuItem.Click += new System.EventHandler(this.设置打印机ToolStripMenuItem_Click);
             // 
             // frmlogin
             // 
@@ -315,7 +316,6 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton tsbLogin;
-        private System.Windows.Forms.ToolStripMenuItem 查询信息ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 导入彩票数据ToolStripMenuItem;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripMenuItem pBBToolStripMenuItem;
@@ -324,6 +324,7 @@
         private System.Windows.Forms.Panel panel1;
         private WeifenLuo.WinFormsUI.Docking.DockPanel dockPanel2;
         private Order.Common.ScrollingText scrollingText1;
+        private System.Windows.Forms.ToolStripMenuItem 设置打印机ToolStripMenuItem;
     }
 }
 

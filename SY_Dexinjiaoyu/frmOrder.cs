@@ -370,7 +370,7 @@ namespace SY_Dexinjiaoyu
 
 
                     item.xinzeng = Convert.ToString(dataGridView1.Rows[i].Cells["xinzeng"].EditedFormattedValue.ToString());
-                    // item.Message = Convert.ToString(dataGridView1.Rows[i].Cells["Message"].EditedFormattedValue.ToString());
+                    item.Message = Convert.ToString(dataGridView1.Rows[i].Cells["Message"].EditedFormattedValue.ToString());//印章类型
 
                     item.Input_Date = Convert.ToDateTime(DateTime.Now.ToString("yyyy/MM/dd"));
                     item.Item_ID = model.Item_ID;
@@ -606,6 +606,10 @@ namespace SY_Dexinjiaoyu
                         item.youxiangqixian = Convert.ToString(dataGridView1.Rows[i].Cells["youxiangqixian"].EditedFormattedValue.ToString());
 
                         item.fushenriqi = Convert.ToString(dataGridView1.Rows[i].Cells["fushenriqi"].EditedFormattedValue.ToString());
+                        item.Message = Convert.ToString(dataGridView1.Rows[i].Cells["Message"].EditedFormattedValue.ToString());
+
+
+
                         Orderinfolist_Server.Add(item);
 
                     }
@@ -615,7 +619,7 @@ namespace SY_Dexinjiaoyu
                     MessageBox.Show("请选择要制证的信息", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
 
-                
+
                 }
                 #endregion
                 InitialBackGroundWorker();
@@ -645,16 +649,17 @@ namespace SY_Dexinjiaoyu
         {
             try
             {
-             
+
                 //初始化信息
                 clsAllnew BusinessHelp = new clsAllnew();
 
                 DateTime oldDate = DateTime.Now;
                 foreach (clsDATAinfo item in Orderinfolist_Server)
                 {
-                  BusinessHelp.ReplaceToExcel(ref this.bgWorker, item, prc_folderpath);
-
-                    BusinessHelp.Run(item, prc_folderpath);
+                    if (item.xingming != null && item.xingming != "")
+                        BusinessHelp.ReplaceToExcel(ref this.bgWorker, item, prc_folderpath);
+                    //rdlc 打印
+                    //BusinessHelp.Run(item, prc_folderpath);
 
                 }
                 DateTime FinishTime = DateTime.Now;
@@ -672,7 +677,7 @@ namespace SY_Dexinjiaoyu
                 throw;
             }
         }
-     
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewColumn column = dataGridView1.Columns[e.ColumnIndex];

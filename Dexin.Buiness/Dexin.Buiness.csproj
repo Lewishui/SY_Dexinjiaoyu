@@ -37,6 +37,9 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Spire.Doc">
+      <HintPath>..\Reference\Spire.Doc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86" />
@@ -51,7 +54,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsAllnew.cs" />
+    <Compile Include="Externs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="xtBiz.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Order.Common\Order.Common.csproj">

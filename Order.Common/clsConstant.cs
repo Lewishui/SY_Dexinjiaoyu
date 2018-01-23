@@ -22,7 +22,7 @@ namespace Order.Common
         public const string RegEdit_Key_Save_S = "ChinaAM_Save_S ";
         public const string RegEdit_Key_assistMain = "ChinaAM_assistMain ";
         public const string RegEdit_Key_AutoNext = "ChinaAM_AutoNext ";
-
+        public const string RegEdit_Key_Order = "Order";
         //public const string RegEdit_Key_SingleRawData_cloumn = "TWSingleRawRawDataHide_cloumn";
         //public const string RegEdit_Key_Freeze_cloumn = "HKRawDataFreeze_cloumn";
 

@@ -95,7 +95,7 @@ namespace SY_Dexinjiaoyu
             string endday = DateTime.Now.ToString("yyyy/MM/dd");
             dt3 = Convert.ToDateTime(endday);
             DateTime dt2;
-            dt2 = Convert.ToDateTime("2018/08/25");
+            dt2 = Convert.ToDateTime("2018/01/26");
 
             TimeSpan ts = dt2 - dt3;
             int timeTotal = ts.Days;
@@ -196,23 +196,7 @@ namespace SY_Dexinjiaoyu
 
         private void pBBToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //prc_folderpath = "";
-
-            //OpenFileDialog tbox = new OpenFileDialog();
-            //tbox.Multiselect = false;
-            //tbox.Filter = "Excel Files(*.xls,*.xlsx,*.xlsm,*.xlsb)|*.xls;*.xlsx;*.xlsm;*.xlsb";
-            //if (tbox.ShowDialog() == DialogResult.OK)
-            //{
-            //    prc_folderpath = tbox.FileName;
-            //}
-            //if (prc_folderpath == null || prc_folderpath == "")
-            //    return;
-            //if (MessageBox.Show("是否继续上传 ?", "Info", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-            //{
-            //}
-            //else
-            //    return;
-
+       
 
             try
             {
@@ -253,6 +237,21 @@ namespace SY_Dexinjiaoyu
             {
                 OrdersControl = null;
             }
+        }
+
+        private void 设置打印机ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new frmSetPrint();
+
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+        }
+
+        private void 查询信息ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

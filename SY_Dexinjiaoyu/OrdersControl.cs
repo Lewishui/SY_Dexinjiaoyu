@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
+using System.IO;
 
 namespace SY_Dexinjiaoyu
 {
@@ -58,26 +59,19 @@ namespace SY_Dexinjiaoyu
 
         private void button4_Click(object sender, EventArgs e)
         {
+            string winauto_Savepath = AppDomain.CurrentDomain.BaseDirectory + "Resources\\seal\\";//02.gif
 
-            //var form = new frmLogCenter("");
 
-            //if (form.ShowDialog() == DialogResult.OK)
-            //{
-
-            //}
-
+            if (Directory.Exists(winauto_Savepath))
+            {
+                System.Diagnostics.Process.Start("explorer.exe", winauto_Savepath);
+            }
+     
         }
 
         private void shippedOrderButton_Click(object sender, EventArgs e)
         {
-            //if (shippingOrderForm == null)
-            //{
-            //    shippingOrderForm = new ShippingOrderForm();
-            //} 
-            //AdjustSubformSize(shippingOrderForm);
-            //shippingOrderForm.InitializeDataSource();
-            //shippingOrderForm.ShowDialog();
-            //this.Close();
+        
             Application.Exit();
 
         }
@@ -168,17 +162,14 @@ namespace SY_Dexinjiaoyu
 
         private void orderConfirmButton_Click(object sender, EventArgs e)
         {
-            //new ConnectServerForReceivedOrderForm().ShowDialog();
-            Is_AdminIS = true;
+            string winauto_Savepath = AppDomain.CurrentDomain.BaseDirectory + "Resources\\photo\\";//02.gif
 
-            //var form = new frmOrder(Is_AdminIS);
-
-            //if (form.ShowDialog() == DialogResult.OK)
-            //{
-
-            //}
-
-
+              
+            if (Directory.Exists(winauto_Savepath))
+            {
+                System.Diagnostics.Process.Start("explorer.exe", winauto_Savepath);
+            }
+ 
 
         }
     }

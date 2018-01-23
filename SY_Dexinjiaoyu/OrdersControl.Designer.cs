@@ -72,7 +72,7 @@
             this.crystalButton5.Name = "crystalButton5";
             this.crystalButton5.Size = new System.Drawing.Size(309, 58);
             this.crystalButton5.TabIndex = 10;
-            this.crystalButton5.Text = "工作日志";
+            this.crystalButton5.Text = "头像管理";
             this.crystalButton5.UseVisualStyleBackColor = false;
             this.crystalButton5.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -85,7 +85,7 @@
             this.crystalButton2.Name = "crystalButton2";
             this.crystalButton2.Size = new System.Drawing.Size(309, 58);
             this.crystalButton2.TabIndex = 7;
-            this.crystalButton2.Text = "管理员";
+            this.crystalButton2.Text = "印章管理";
             this.crystalButton2.UseVisualStyleBackColor = false;
             this.crystalButton2.Click += new System.EventHandler(this.orderConfirmButton_Click);
             // 

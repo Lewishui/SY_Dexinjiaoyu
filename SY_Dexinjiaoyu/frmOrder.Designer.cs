@@ -62,9 +62,9 @@
             this.newButton = new System.Windows.Forms.Button();
             this.delScheduleButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.xuhao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Message = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zhenghao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xingming = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xingbie = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -76,6 +76,7 @@
             this.Item_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Input_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xinzeng = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -243,7 +244,7 @@
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 81F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 874F));
             this.tableLayoutPanel1.Controls.Add(this.toolStrip1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -278,6 +279,7 @@
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(79, 25);
             this.toolStripButton3.Text = "新增";
+            this.toolStripButton3.Visible = false;
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // toolStripButton1
@@ -304,7 +306,7 @@
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(79, 25);
-            this.toolStripButton4.Text = "导出";
+            this.toolStripButton4.Text = "打印";
             this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // groupBox1
@@ -401,6 +403,7 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.xuhao,
             this.Check,
+            this.Message,
             this.zhenghao,
             this.xingming,
             this.xingbie,
@@ -445,6 +448,13 @@
             this.Check.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Check.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Check.Width = 40;
+            // 
+            // Message
+            // 
+            this.Message.DataPropertyName = "Message";
+            this.Message.HeaderText = "匹配印章";
+            this.Message.Name = "Message";
+            this.Message.Width = 40;
             // 
             // zhenghao
             // 
@@ -581,6 +591,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.DataGridViewTextBoxColumn xuhao;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Check;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Message;
         private System.Windows.Forms.DataGridViewTextBoxColumn zhenghao;
         private System.Windows.Forms.DataGridViewTextBoxColumn xingming;
         private System.Windows.Forms.DataGridViewComboBoxColumn xingbie;

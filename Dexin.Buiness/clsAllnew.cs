@@ -17,6 +17,9 @@ using System.Drawing;
 using Microsoft.Reporting.WinForms;
 using System.Drawing.Printing;
 using System.Drawing.Imaging;
+using Microsoft.Win32;
+
+
 namespace Dexin.Buiness
 {
     public class clsAllnew
@@ -29,6 +32,7 @@ namespace Dexin.Buiness
         private string savepath;
         clsDATAinfo punblic_item;
 
+
         #region print
         private List<Stream> m_streams;
         private int m_currentPageIndex;
@@ -40,7 +44,7 @@ namespace Dexin.Buiness
         public clsAllnew()
         {
             newsth = AppDomain.CurrentDomain.BaseDirectory + "" + dataSource;//System\\
-
+            getUserPint();
 
 
         }
@@ -246,7 +250,7 @@ namespace Dexin.Buiness
 
 
                 if (reader.GetValue(10) != null && Convert.ToString(reader.GetValue(10)) != "")
-                    item.Message = Convert.ToString(reader.GetString(19));
+                    item.Message = Convert.ToString(reader.GetString(10));
 
                 ClaimReport_Server.Add(item);
 
@@ -265,16 +269,16 @@ namespace Dexin.Buiness
             bgWorker1 = bgWorker;
             bgWorker1.ReportProgress(0, "准备中 ....");
 
-            string ZFCEPath = AppDomain.CurrentDomain.BaseDirectory + "Resources\\photo\\林光琼.jpg";
-            string yinzhangweizhi = AppDomain.CurrentDomain.BaseDirectory + "Resources\\seal\\02.gif";
+            string ZFCEPath = AppDomain.CurrentDomain.BaseDirectory + "Resources\\photo\\" + temp.xingming + ".jpg";
+            string yinzhangweizhi = AppDomain.CurrentDomain.BaseDirectory + "Resources\\seal\\" + temp.Message + ".gif";//02.gif
 
             Word.Application app = null;
             Word.Document doc = null;
             //将要导出的新word文件名
             string newFile = DateTime.Now.ToString("yyyyMMddHHmmssss") + ".doc";
             //  string physicNewFile = Server.MapPath(DateTime.Now.ToString("yyyyMMddHHmmssss") + ".doc");
-            string physicNewFile = AppDomain.CurrentDomain.BaseDirectory + "Results\\" + DateTime.Now.ToString("yyyyMMddHHmmssss") + ".doc";
-            physicNewFile = savefolder + "\\" + DateTime.Now.ToString("yyyyMMddHHmmssss") + ".doc"; ;
+            string physicNewFile = AppDomain.CurrentDomain.BaseDirectory + "Results\\" + temp.xingming + "-" + DateTime.Now.ToString("yyyyMMddHHmmssss") + ".doc";
+            physicNewFile = savefolder + "\\" + temp.xingming + "-" + "" + DateTime.Now.ToString("yyyyMMddHHmmssss") + ".doc"; ;
 
             try
             {
@@ -294,7 +298,7 @@ namespace Dexin.Buiness
                 Dictionary<string, string> datas = new Dictionary<string, string>();
                 datas.Add("{zhenghao}", temp.zhenghao);
                 datas.Add("{xingming}", temp.xingming);
-                datas.Add("{sex}", temp.xingbie);
+                //datas.Add("{sex}", temp.xingbie);
                 datas.Add("{zuoyeleibie}", temp.zuoyeleibie);
 
                 datas.Add("{zhuncaoxiangmu}", temp.zhuncaoxiangmu);
@@ -329,7 +333,8 @@ namespace Dexin.Buiness
                     {
                         bk.Range.Text = temp.xingbie;
                     }
-                    else if (bk.Name == "image2")
+                    //替换人的头像
+                    else if (bk.Name == "image2" && File.Exists(ZFCEPath))
                     {
                         bk.Select();
                         Selection sel = app.Selection;
@@ -348,7 +353,8 @@ namespace Dexin.Buiness
                         //  Microsoft.Office.Interop.Word.Shape cShape = inlineShape.ConvertToShape();
                         // cShape.WrapFormat.Type = WdWrapType.wdWrapNone;  
                     }
-                    else if (bk.Name == "seal")
+                    //r替换印章       
+                    else if (bk.Name == "seal" && File.Exists(yinzhangweizhi))
                     {
                         bk.Select();
                         Selection sel = app.Selection;
@@ -378,6 +384,7 @@ namespace Dexin.Buiness
 
 
                     }
+                    //模拟测试  用， 目的在word 内部设置 印章背景为 透明的，
                     else if (bk.Name == "test1")
                     {
                         bk.Select();
@@ -450,19 +457,40 @@ namespace Dexin.Buiness
                         #endregion
                     }
                 }
+                #region 打印word
+                //   // 实例化System.Windows.Forms.PrintDialog对象
+                //   PrintDialog dialog = new PrintDialog();
+                //   dialog.AllowPrintToFile = true;
+                //   dialog.AllowCurrentPage = true;
+                //   dialog.AllowSomePages = true;
+                //   dialog.UseEXDialog = true;
+                //   // 关联doc.PrintDialog属性和PrintDialog对象
+                //   doc.PrintDialog = dialog;
+                //// 
+
+                //   // 后台打印
+                //   // PrintDocument printDoc = doc.PrintDocument;       
+                //   // printDoc.Print();
+                //   // 显示打印对话框并打印
+                //   if (dialog.ShowDialog() == DialogResult.OK)
+                //   {
+                //       //printDoc.Print();
+                //   } 
+
+
+                string defaultPrinter = app.ActivePrinter;
+                Externs.SetDefaultPrinter(orderprint);
+
+
+                doc.PrintOut();
+                #endregion
+
+
                 //对替换好的word模板另存为一个新的word文档
                 doc.SaveAs(physicNewFile,
                 oMissing, oMissing, oMissing, oMissing, oMissing, oMissing, oMissing, oMissing, oMissing,
                 oMissing, oMissing, oMissing, oMissing, oMissing, oMissing);
 
-                //准备导出word
-                //Response.Clear();
-                //Response.Buffer = true;
-                //Response.Charset = "utf-8";
-                //Response.AddHeader("Content-Disposition", "attachment;filename=" + DateTime.Now.ToString("yyyyMMddHHmmssss") + ".doc");
-                //Response.ContentEncoding = System.Text.Encoding.GetEncoding("utf-8");
-                //Response.ContentType = "application/ms-word";
-                //Response.End();
             }
             catch (System.Threading.ThreadAbortException ex)
             {
@@ -516,7 +544,8 @@ namespace Dexin.Buiness
             //导出 word
 
             //   btnExportExcel_Click(report);
-            btnExportword(report);
+            //好用 但是 图片不能叠加的现实 
+            //btnExportword(report);
 
         }
         public void Export(LocalReport report)
@@ -654,5 +683,31 @@ namespace Dexin.Buiness
             fs.Close();
 
         }
+
+        //获取打印机名称
+        private void getUserPint()
+        {
+            try
+            {
+                RegistryKey rkLocalMachine = Registry.LocalMachine;
+                RegistryKey rkSoftWare = rkLocalMachine.OpenSubKey(clsConstant.RegEdit_Key_SoftWare);
+                RegistryKey rkAmdape2e = rkSoftWare.OpenSubKey(clsConstant.RegEdit_Key_AMDAPE2E);
+                if (rkAmdape2e != null)
+                {
+                    orderprint = clsCommHelp.encryptString(clsCommHelp.NullToString(rkAmdape2e.GetValue(clsConstant.RegEdit_Key_Order)));
+
+                    rkAmdape2e.Close();
+                }
+                rkSoftWare.Close();
+                rkLocalMachine.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("" + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw ex;
+            }
+        }
+
+
     }
 }
