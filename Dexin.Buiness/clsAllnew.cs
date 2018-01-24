@@ -43,7 +43,7 @@ namespace Dexin.Buiness
 
         public clsAllnew()
         {
-            newsth = AppDomain.CurrentDomain.BaseDirectory + "" + dataSource;//System\\
+            newsth = AppDomain.CurrentDomain.BaseDirectory + "System\\" + dataSource;//System\\
             getUserPint();
 
 
@@ -326,7 +326,7 @@ namespace Dexin.Buiness
                     ref oMissing, ref oMissing,
                     ref oMissing, ref oMissing);
                 }
-                doc.ActiveWindow.Visible = true;
+            //    doc.ActiveWindow.Visible = true;
                 foreach (Bookmark bk in doc.Bookmarks)
                 {
                     if (bk.Name == "sex")

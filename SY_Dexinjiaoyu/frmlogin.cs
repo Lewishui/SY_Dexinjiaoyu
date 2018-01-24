@@ -95,16 +95,17 @@ namespace SY_Dexinjiaoyu
             string endday = DateTime.Now.ToString("yyyy/MM/dd");
             dt3 = Convert.ToDateTime(endday);
             DateTime dt2;
-            dt2 = Convert.ToDateTime("2018/01/26");
+            dt2 = Convert.ToDateTime("2018/01/29");
 
             TimeSpan ts = dt2 - dt3;
             int timeTotal = ts.Days;
             if (timeTotal < 0)
             {
-                MessageBox.Show("六个月运行期已到，请将剩余费用付清 !");
+                //MessageBox.Show("六个月运行期已到，请将剩余费用付清 !");
+                MessageBox.Show("试运行期已到，请将剩余费用付清 !");
                 return;
             }
-            // MessageBox.Show("当前为测试系统 !");
+           MessageBox.Show("当前为测试系统 !");
 
             #endregion
 

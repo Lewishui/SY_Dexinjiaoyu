@@ -14,7 +14,7 @@ namespace Order.Common
     public static class SQLiteHelper
     {
         //public const string connStr = AppDomain.CurrentDomain.BaseDirectory+"Lottery.sqlite";
-        public static string connStr = "Data Source=" + AppDomain.CurrentDomain.BaseDirectory + "SY_Dexinjiaoyu.sqlite"; //ElandSalseDailyReport_qianduan   ElandSalseDailyReport1
+        public static string connStr = "Data Source=" + AppDomain.CurrentDomain.BaseDirectory + "System\\SY_Dexinjiaoyu.sqlite"; //ElandSalseDailyReport_qianduan   ElandSalseDailyReport1
       
         public static string CONNECTION_STRING_BASE
         {

@@ -1,0 +1,2 @@
+C:\mysteap\work_office\ProjectOut\SY_德信教育word批量管理\SY_Dexinjiaoyu\SY_Dexinjiaoyu\obj\Release\Interop.SHDocVw.dll
+C:\mysteap\work_office\ProjectOut\SY_德信教育word批量管理\SY_Dexinjiaoyu\SY_Dexinjiaoyu\obj\Release\SY_Dexinjiaoyu.csproj.ResolveComReference.cache

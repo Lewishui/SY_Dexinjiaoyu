@@ -62,6 +62,7 @@
             this.newButton = new System.Windows.Forms.Button();
             this.delScheduleButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.xuhao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Message = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,7 +77,6 @@
             this.Item_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Input_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xinzeng = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -454,7 +454,6 @@
             this.Message.DataPropertyName = "Message";
             this.Message.HeaderText = "匹配印章";
             this.Message.Name = "Message";
-            this.Message.Width = 40;
             // 
             // zhenghao
             // 

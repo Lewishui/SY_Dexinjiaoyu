@@ -79,6 +79,12 @@
     <Compile Include="frmAboutBox.Designer.cs">
       <DependentUpon>frmAboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmHuizhigongzhang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHuizhigongzhang.Designer.cs">
+      <DependentUpon>frmHuizhigongzhang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmlogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAboutBox.resx">
       <DependentUpon>frmAboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHuizhigongzhang.resx">
+      <DependentUpon>frmHuizhigongzhang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmlogin.resx">
       <DependentUpon>frmlogin.cs</DependentUpon>
