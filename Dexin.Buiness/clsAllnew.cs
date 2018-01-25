@@ -326,7 +326,7 @@ namespace Dexin.Buiness
                     ref oMissing, ref oMissing,
                     ref oMissing, ref oMissing);
                 }
-            //    doc.ActiveWindow.Visible = true;
+                //    doc.ActiveWindow.Visible = true;
                 foreach (Bookmark bk in doc.Bookmarks)
                 {
                     if (bk.Name == "sex")
@@ -708,6 +708,43 @@ namespace Dexin.Buiness
             }
         }
 
-
+        #region 将图片转成数据流
+        public byte[] bufferRight;
+        public byte[] bufferWrong;
+        //将图片保存在流中
+        public void InitImage(clsDATAinfo temp)
+        {
+            string yinzhangweizhi = AppDomain.CurrentDomain.BaseDirectory + "Resources\\seal\\" + temp.Message + ".gif";//02.gif
+            string ZFCEPath = AppDomain.CurrentDomain.BaseDirectory + "Resources\\photo\\" + temp.xingming + ".jpg";
+           
+            //Bitmap right = new Bitmap(Server.MapPath("../Images/right.jpeg"));
+            //Bitmap wrong = new Bitmap(Server.MapPath("../Images/wrong.jpeg"));
+            Bitmap right = new Bitmap(yinzhangweizhi);
+            Bitmap wrong = new Bitmap(ZFCEPath);
+            bufferRight = BitmapToBytes(right);
+            bufferWrong = BitmapToBytes(wrong);
+        }
+        //图片转码
+        private byte[] BitmapToBytes(Bitmap Bitmap)
+        {
+            MemoryStream ms = null;
+            try
+            {
+                ms = new MemoryStream();
+                Bitmap.Save(ms, ImageFormat.Jpeg);
+                byte[] byteImage = new Byte[ms.Length];
+                byteImage = ms.ToArray();
+                return byteImage;
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                ms.Close();
+            }
+        }
+        #endregion
     }
 }

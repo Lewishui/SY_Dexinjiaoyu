@@ -4,9 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Dexin.Buiness;
 
 namespace SY_Dexinjiaoyu
 {
@@ -15,15 +18,15 @@ namespace SY_Dexinjiaoyu
         string inputWords;
         Rectangle rect;
         Font Var_Font = new System.Drawing.Font("Microsoft Sans Serif", 17, System.Drawing.FontStyle.Bold);
-         public frmHuizhigongzhang()
+        public frmHuizhigongzhang()
         {
             InitializeComponent();
-    
+
         }
         #region 绘制公章
         private void simpleButton_绘制公章_Click(object sender, EventArgs e)
-         {
-             inputWords = textBox_文字.Text;
+        {
+            inputWords = textBox_文字.Text;
             int tem_Line = 0;  //圆的直径
             int circularity_W = 5; //画笔的粗细
             string star_Str = "★";  //星星
@@ -137,7 +140,7 @@ namespace SY_Dexinjiaoyu
 
         private void button3_Click(object sender, EventArgs e)
         {
-           
+
             string filename = @"C:\Users\IBM_ADMIN\Desktop\QQ截图20180121224116.jpg";
 
             Image img = Image.FromFile(filename);
@@ -169,5 +172,45 @@ namespace SY_Dexinjiaoyu
         }
 
 
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            clsAllnew BusinessHelp = new clsAllnew();
+
+            //BusinessHelp.InitImage();
+
+        }
+
+        #region C# Image与Base64编码互转函数
+
+        public Bitmap GetImageFromBase64(string base64string)
+        {
+            byte[] b = Convert.FromBase64String(base64string);
+            MemoryStream ms = new MemoryStream(b);
+            Bitmap bitmap = new Bitmap(ms);
+            return bitmap;
+        }
+        public string GetBase64FromImage(string imagefile)
+        {
+            string strbaser64 = "";
+            try
+            {
+                Bitmap bmp = new Bitmap(imagefile);
+                MemoryStream ms = new MemoryStream();
+                bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                byte[] arr = new byte[ms.Length];
+                ms.Position = 0;
+                ms.Read(arr, 0, (int)ms.Length);
+                ms.Close();
+                strbaser64 = Convert.ToBase64String(arr);
+            }
+            catch (Exception)
+            {
+                throw new Exception("Something wrong during convert!");
+            }
+            return strbaser64;
+        }
+
+        #endregion
     }
 }

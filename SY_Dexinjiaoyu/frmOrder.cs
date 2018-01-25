@@ -688,6 +688,121 @@ namespace SY_Dexinjiaoyu
             }
         }
 
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                #region 获取信息
+                Orderinfolist_Server = new List<clsDATAinfo>();
 
+                for (int i = 0; i < dataGridView1.RowCount; i++)
+                {
+                    if ((bool)dataGridView1.Rows[i].Cells[1].EditedFormattedValue == true)
+                    {
+                        clsDATAinfo item = new clsDATAinfo();
+                        item.zhenghao = Convert.ToString(dataGridView1.Rows[i].Cells["zhenghao"].EditedFormattedValue.ToString());
+
+                        item.xingming = Convert.ToString(dataGridView1.Rows[i].Cells["xingming"].EditedFormattedValue.ToString());
+
+                        item.xingbie = Convert.ToString(dataGridView1.Rows[i].Cells["xingbie"].EditedFormattedValue.ToString());
+
+                        item.zuoyeleibie = Convert.ToString(dataGridView1.Rows[i].Cells["zuoyeleibie"].EditedFormattedValue.ToString());
+
+                        item.zhuncaoxiangmu = Convert.ToString(dataGridView1.Rows[i].Cells["zhuncaoxiangmu"].EditedFormattedValue.ToString());
+
+                        item.chulingriqi = Convert.ToString(dataGridView1.Rows[i].Cells["chulingriqi"].EditedFormattedValue.ToString());
+
+                        item.youxiangqixian = Convert.ToString(dataGridView1.Rows[i].Cells["youxiangqixian"].EditedFormattedValue.ToString());
+
+                        item.fushenriqi = Convert.ToString(dataGridView1.Rows[i].Cells["fushenriqi"].EditedFormattedValue.ToString());
+                        item.Message = Convert.ToString(dataGridView1.Rows[i].Cells["Message"].EditedFormattedValue.ToString());
+
+
+
+                        Orderinfolist_Server.Add(item);
+
+                    }
+                }
+                if (Orderinfolist_Server == null || Orderinfolist_Server.Count == 0)
+                {
+                    MessageBox.Show("请选择要制证的信息", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+
+
+                }
+                #endregion
+                InitialBackGroundWorker();
+                bgWorker.DoWork += new DoWorkEventHandler(PrintView_List);
+
+                bgWorker.RunWorkerAsync();
+                // 启动消息显示画面
+                frmMessageShow = new frmMessageShow(clsShowMessage.MSG_001,
+                                                    clsShowMessage.MSG_007,
+                                                    clsConstant.Dialog_Status_Disable);
+                frmMessageShow.ShowDialog();
+                // 数据读取成功后在画面显示
+                if (blnBackGroundWorkIsOK)
+                {
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("12320" + ex);
+                return;
+
+                throw ex;
+            }
+        }
+
+        private void PrintView_List(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+
+                //初始化信息
+                clsAllnew BusinessHelp = new clsAllnew();
+
+                DateTime oldDate = DateTime.Now;
+                foreach (clsDATAinfo item in Orderinfolist_Server)
+                {
+                    BusinessHelp.InitImage(item);
+
+
+                //  item.Message = Convert.ToBase64String(BusinessHelp.bufferRight);
+                  item.Message = AppDomain.CurrentDomain.BaseDirectory + "Resources\\seal\\" + item.Message + ".gif";//02.gif
+
+                    //if (item.xingming != null && item.xingming != "")
+                    //    BusinessHelp.ReplaceToExcel(ref this.bgWorker, item, prc_folderpath);
+                    //    rdlc 打印
+                    //BusinessHelp.Run(item, prc_folderpath);
+                    // frmReportViewer 
+                    var form = new frmReportViewer(Orderinfolist_Server);
+
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+
+                    }
+                    return;
+
+
+                }
+                DateTime FinishTime = DateTime.Now;
+                TimeSpan s = DateTime.Now - oldDate;
+                string timei = s.Minutes.ToString() + ":" + s.Seconds.ToString();
+                string Showtime = clsShowMessage.MSG_029 + timei.ToString();
+                bgWorker.ReportProgress(clsConstant.Thread_Progress_OK, clsShowMessage.MSG_031 + "\r\n" + Showtime);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("12320" + ex);
+                return;
+
+                throw;
+            }
+        }
+
+ 
     }
 }
